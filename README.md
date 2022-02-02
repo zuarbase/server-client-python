@@ -1,3 +1,6 @@
+# Zuar Fork of Tableau's server-client-python
+Forked to add support for user impersonation with Personal Access Tokens.
+
 # Tableau Server Client (Python)
 
 [![Tableau Supported](https://img.shields.io/badge/Support%20Level-Tableau%20Supported-53bd92.svg)](https://www.tableau.com/support-levels-it-and-developer-tools) [![Build Status](https://github.com/tableau/server-client-python/actions/workflows/run-tests.yml/badge.svg)](https://github.com/tableau/server-client-python/actions)
