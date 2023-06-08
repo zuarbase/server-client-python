@@ -73,7 +73,7 @@ class ScheduleItem(object):
         return self._name
 
     @name.setter
-    @property_not_nullable
+    #@property_not_nullable
     def name(self, value):
         self._name = value
 
@@ -81,7 +81,7 @@ class ScheduleItem(object):
     def next_run_at(self):
         return self._next_run_at
 
-    @property
+    #@property
     def priority(self):
         return self._priority
 
@@ -90,7 +90,7 @@ class ScheduleItem(object):
     def priority(self, value):
         self._priority = value
 
-    @property
+    #@property
     def schedule_type(self):
         return self._schedule_type
 

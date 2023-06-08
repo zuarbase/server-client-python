@@ -1,5 +1,14 @@
 # Zuar Fork of Tableau's server-client-python
-Forked to add support for user impersonation with Personal Access Tokens.
+
+## Zuar Branches
+
+`TSC-0` - add support for user impersonation with Personal Access Tokens
+
+`TSC-1` - pickup [hotfix](https://github.com/tableau/server-client-python/pull/1239/files)
+for [issue 1237](https://github.com/tableau/server-client-python/issues/1237)
+
+Our branches are based on commit `34ed9b`.
+
 
 # Tableau Server Client (Python)
 
