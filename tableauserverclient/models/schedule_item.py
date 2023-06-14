@@ -81,22 +81,22 @@ class ScheduleItem(object):
     def next_run_at(self):
         return self._next_run_at
 
-    #@property
+    @property
     def priority(self):
         return self._priority
 
     @priority.setter
-    @property_is_int(range=(1, 100))
+    #@property_is_int(range=(1, 100))
     def priority(self, value):
         self._priority = value
 
-    #@property
+    @property
     def schedule_type(self):
         return self._schedule_type
 
     @schedule_type.setter
     @property_is_enum(Type)
-    @property_not_nullable
+    #@property_not_nullable
     def schedule_type(self, value):
         self._schedule_type = value
 
