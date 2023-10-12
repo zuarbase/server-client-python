@@ -260,6 +260,32 @@ class ScheduleItem(object):
             if interval_occurrence == IntervalItem.Occurrence.Minutes:
                 interval_value = float(interval_value) / 60
 
+            if interval_occurrence == IntervalItem.Occurrence.WeekDay:
+                # ZS-8081 / TSC-4
+                #
+                # Magically, on 2023-10-10, customer Tableau Extract jobs started
+                # failing like this:
+                #
+                #    File ".../tableauserverclient/models/interval_item.py", line 66, in interval
+                #      if float(interval) not in VALID_INTERVALS:
+                #    ValueError: could not convert string to float: 'Saturday'
+                #
+                # This is because the 'HourlyInterval' implementation does not
+                # support a 'weekDay' parameter.  It appears that prior to
+                # 2023-10-10, either of two things were happening:
+                #    a. The API was not returning 'weekDay' and that, on
+                #       that day, it began doing so.
+                #    b. Prior to that day, 'frequency' was 'Frequency.Weekly'
+                #       which would have allowed processing without error.
+                #
+                # Implementing support for 'weekDay' in 'HourlyInterval' is out of
+                # scope for Zuar.  Because we never actually use any of the values
+                # / parameters of extracts, this fix/hack ignores the 'weekDay'
+                # when creating the 'HourlyInterval'.  It is sufficient to get Runner
+                # extract jobs working again.
+                # breakpoint()
+                interval_occurrence, interval_value = interval[0]
+
             return HourlyInterval(start_time, end_time, interval_value)
 
         if frequency == IntervalItem.Frequency.Weekly:
