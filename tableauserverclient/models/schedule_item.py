@@ -287,19 +287,19 @@ class ScheduleItem(object):
                 # Explanation of workaround:
                 # The XML response that causes problems might look like this:
                 # <task>
-		#    <extractRefresh id="3b4af880-bc6b-44da-b1b4-f0dd0483f527" priority="50" consecutiveFailedCount="5" type="RefreshExtractTask">
-		#       <schedule frequency="Hourly" nextRunAt="2023-10-13T01:30:00Z">
-		#          <frequencyDetails start="02:30:00" end="02:30:00">
-		#             <intervals>
-		#                <interval hours="4" />
-		#                <interval weekDay="Sunday" />
-		#                <interval weekDay="Friday" />
-		#             </intervals>
-		#          </frequencyDetails>
-		#       </schedule>
-		#       <workbook id="465233e2-213f-4399-a1fa-7d3b058f9122" />
-		#    </extractRefresh>
-		# </task>
+                #    <extractRefresh id="3b4af880-bc6b-44da-b1b4-f0dd0483f527" priority="50" consecutiveFailedCount="5" type="RefreshExtractTask">
+                #       <schedule frequency="Hourly" nextRunAt="2023-10-13T01:30:00Z">
+                #          <frequencyDetails start="02:30:00" end="02:30:00">
+                #             <intervals>
+                #                <interval hours="4" />
+                #                <interval weekDay="Sunday" />
+                #                <interval weekDay="Friday" />
+                #             </intervals>
+                #          </frequencyDetails>
+                #       </schedule>
+                #       <workbook id="465233e2-213f-4399-a1fa-7d3b058f9122" />
+                #    </extractRefresh>
+                # </task>
                 # 'interval[]' will contain all intervals, in this case, all three intervals above.
                 # interval[0] apparently will always be the first one with the 'hours="n"'.
                 # If len(interval) > 1, the remainder will be the 'weekDay' intervals.
